@@ -1,0 +1,21 @@
+Ref,Value,Footprint,Manufacturer part (suggested),Populate,Note
+U1,FT245RNL,Package_SO:SSOP-28_5.3x10.2mm_P0.65mm,FTDI FT245RNL-REEL / FT245RNL-TUBE,Yes,"USB FIFO; internal EEPROM, oscillator and USB resistors"
+J1,DLP-USB245M pins,DLP245C:DIP24_Module_W15.24mm,2x Samtec TS-112-T-A or generic 1x12 2.54mm male header (or turned-pin),Yes,Pin 1 BOARD ID tied low (= 245 variant). Pin 9 SND/WUP not available on FT245R
+J2,USB-C,Connector_USB:USB_C_Receptacle_GCT_USB4105-xx-A_16P_TopMnt_Horizontal,GCT USB4105-GF-A,Yes,"USB 2.0 Type-C receptacle, 16P"
+U2,USBLC6-2SC6,Package_TO_SOT_SMD:SOT-23-6,STMicroelectronics USBLC6-2SC6,Yes,ESD protection on D+/D-
+R1,5.1k,Resistor_SMD:R_0603_1608Metric,5.1k 1% 0603,Yes,CC1 Rd pull-down (UFP)
+R2,5.1k,Resistor_SMD:R_0603_1608Metric,5.1k 1% 0603,Yes,CC2 Rd pull-down (UFP)
+F1,500mA PTC,Fuse:Fuse_1206_3216Metric,"Bourns MF-MSMF050-2 (or equiv. 1206 PTC, 0.5A hold)",Yes,VBUS protection
+C7,4.7u,Capacitor_SMD:C_0603_1608Metric,4.7uF 10V X5R 0603,Yes,VBUS bulk (keep total <10uF)
+FB1,600R@100MHz,Inductor_SMD:L_0603_1608Metric,Murata BLM18PG601SN1D (or equiv.),Yes,Supply filter to FT245 VCC
+C1,1u,Capacitor_SMD:C_0603_1608Metric,1uF 10V X5R 0603,Yes,VCC decoupling
+C2,100n,Capacitor_SMD:C_0603_1608Metric,100nF 16V X7R 0603,Yes,"VCC decoupling, at pin 20"
+C3,100n,Capacitor_SMD:C_0603_1608Metric,100nF 16V X7R 0603,Yes,"VCCIO decoupling, at pin 4"
+C4,100n,Capacitor_SMD:C_0603_1608Metric,100nF 16V X7R 0603,Yes,3V3OUT decoupling (required)
+C5,47p,Capacitor_SMD:C_0603_1608Metric,47pF C0G 0603,DNP,"Optional EMI cap per FTDI ref, DNP"
+C6,47p,Capacitor_SMD:C_0603_1608Metric,47pF C0G 0603,DNP,"Optional EMI cap per FTDI ref, DNP"
+R5,10k,Resistor_SMD:R_0603_1608Metric,10k 0603,Yes,PWREN# pull-up to VCCIO
+R3,10k,Resistor_SMD:R_0603_1608Metric,10k 0603,Yes,RESETO# pull-up to 3.3V
+U3,MCP121T-450E/TT,Package_TO_SOT_SMD:SOT-23,Microchip MCP121T-450E/TT,Yes,"Emulates RESETO#: low until VCC>4.38V +120ms, then 3.3V via R3"
+JP1,PORTVCC-EXTVCC,Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm,PCB solder jumper,Yes,Close for USB bus-powered without external strap
+JP2,EXTVCC-VCCIO,Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm,PCB solder jumper,Yes,Close for 5V I/O without external strap
